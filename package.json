@@ -1,0 +1,16 @@
+{
+  "name": "shopeasy-qa",
+  "version": "1.0.0",
+  "description": "Playwright automation tests for Shopeasy",
+  "scripts": {
+    "test": "playwright test",
+    "test:headed": "playwright test --headed",
+    "test:debug": "playwright test --debug"
+  },
+  "keywords": ["playwright", "automation", "testing"],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "latest"
+  }
+}

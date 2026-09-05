@@ -12,6 +12,15 @@ test.describe('Login', () => {
     await expect(page).toHaveURL(/dashboard/);
   });
 
+  test('should login with special-character password', async ({ page }) => {
+    const loginPage = new LoginPage(page);
+
+    await loginPage.goto();
+    await loginPage.login('testuser', 'Test@123#');
+
+    await expect(page).toHaveURL(/dashboard/);
+  });
+
   test('should show error for invalid password', async ({ page }) => {
     const loginPage = new LoginPage(page);
 
@@ -20,6 +29,7 @@ test.describe('Login', () => {
 
     await expect(loginPage.errorMessage)
       .toContainText('Invalid credentials');
+    await expect(loginPage.loginButton).toBeEnabled();
   });
 
   test('should require username', async ({ page }) => {
